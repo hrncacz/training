@@ -49,7 +49,6 @@ const player = new Fighter({
   offset: { x: 215, y: 143 },
   velocity: { x: 0, y: 0 },
   color: 'blue',
-  direction: 'right',
   scale: 2.8,
   framesMax: 8,
   imageSource: '/img/mh1/Idle.png',
@@ -76,6 +75,7 @@ const player = new Fighter({
       image: new Image(),
     },
   },
+  weaponBlock: { offset: { x: 170, y: 75 }, width: 150, height: 50 },
 });
 
 const enemy = new Fighter({
@@ -83,7 +83,6 @@ const enemy = new Fighter({
   offset: { x: 215, y: 160 },
   velocity: { x: 0, y: 0 },
   color: 'red',
-  direction: 'left',
   scale: 2.8,
   framesMax: 4,
 
@@ -111,6 +110,7 @@ const enemy = new Fighter({
       image: new Image(),
     },
   },
+  weaponBlock: { offset: { x: -170, y: 75 }, width: 150, height: 50 },
 });
 
 countdown();
@@ -179,20 +179,31 @@ function animate() {
     }
 
     // Player hitting
-    if (blockColision(player, enemy)) {
+    if (blockColision(player, enemy) && player.frameCurrent === 4) {
       console.log('Player hit');
       player.successfulHit();
       enemy.gotHit(10);
+      player.isHitting = false;
       enemyHealthBarDiv.style.width = `${enemy.getHealth()}%`;
     }
 
+    if (player.isHitting && player.frameCurrent === 4) {
+      player.isHitting = false;
+    }
+
     // Enemy hitting
-    if (blockColision(enemy, player)) {
+    if (blockColision(enemy, player) && enemy.frameCurrent === 3) {
       console.log('Enemy hit');
       enemy.successfulHit();
       player.gotHit(10);
+      enemy.isHitting = false;
       playerHealthBarDiv.style.width = `${player.getHealth()}%`;
     }
+
+    if (enemy.isHitting && enemy.frameCurrent === 4) {
+      enemy.isHitting = false;
+    }
+
     player.update();
     enemy.update();
     checkWinner();

@@ -2,27 +2,36 @@ import { Fighter } from './classes';
 import { player, enemy } from './main';
 
 function blockColision(hitting: Fighter, gotHit: Fighter) {
-  if (hitting.direction === 'right') {
-    if (
-      hitting.getWeaponRightSide() >= gotHit.getBodyLeftSide() &&
-      hitting.getWeaponRightSide() <= gotHit.getBodyRightSide() &&
-      hitting.getWeaponBottomSide() >= gotHit.getBodyTopSide() &&
-      hitting.getWeaponTopSide() <= gotHit.getBodyBottomSide() &&
-      hitting.isHitting
-    ) {
-      return true;
-    } else return false;
-  } else if (hitting.direction === 'left') {
-    if (
-      hitting.getWeaponLeftSide() >= gotHit.getBodyLeftSide() &&
-      hitting.getWeaponLeftSide() <= gotHit.getBodyRightSide() &&
-      hitting.getWeaponBottomSide() >= gotHit.getBodyTopSide() &&
-      hitting.getWeaponTopSide() <= gotHit.getBodyBottomSide() &&
-      hitting.isHitting
-    ) {
-      return true;
-    } else return false;
-  }
+  if (
+    hitting.getWeaponRightSide() >= gotHit.getBodyLeftSide() &&
+    hitting.getWeaponRightSide() <= gotHit.getBodyRightSide() &&
+    hitting.getWeaponBottomSide() >= gotHit.getBodyTopSide() &&
+    hitting.getWeaponTopSide() <= gotHit.getBodyBottomSide() &&
+    hitting.isHitting
+  ) {
+    return true;
+  } else return false;
+  // if (hitting.direction === 'right') {
+  //   if (
+  //     hitting.getWeaponRightSide() >= gotHit.getBodyLeftSide() &&
+  //     hitting.getWeaponRightSide() <= gotHit.getBodyRightSide() &&
+  //     hitting.getWeaponBottomSide() >= gotHit.getBodyTopSide() &&
+  //     hitting.getWeaponTopSide() <= gotHit.getBodyBottomSide() &&
+  //     hitting.isHitting
+  //   ) {
+  //     return true;
+  //   } else return false;
+  // } else if (hitting.direction === 'left') {
+  //   if (
+  //     hitting.getWeaponLeftSide() >= gotHit.getBodyLeftSide() &&
+  //     hitting.getWeaponLeftSide() <= gotHit.getBodyRightSide() &&
+  //     hitting.getWeaponBottomSide() >= gotHit.getBodyTopSide() &&
+  //     hitting.getWeaponTopSide() <= gotHit.getBodyBottomSide() &&
+  //     hitting.isHitting
+  //   ) {
+  //     return true;
+  //   } else return false;
+  // }
 }
 
 let timer = 120;

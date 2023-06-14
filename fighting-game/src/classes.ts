@@ -18,8 +18,12 @@ interface ISpritesSprite {
 interface IFighterProps extends ISpriteProps {
   velocity: { x: number; y: number };
   color: string;
-  direction: string;
   sprites: { [key: string]: ISpritesSprite };
+  weaponBlock: {
+    offset: { x: number; y: number };
+    width: number;
+    height: number;
+  };
 }
 
 class Sprite {
@@ -94,10 +98,10 @@ class Fighter extends Sprite {
   color: string;
   lastKey: string;
   inAir: boolean;
-  direction: string;
   weaponBlock: {
     x: number;
     y: number;
+    offset: { x: number; y: number };
     width: number;
     height: number;
     color: string;
@@ -112,12 +116,12 @@ class Fighter extends Sprite {
     this.color = props.color;
     this.lastKey = '';
     this.inAir = false;
-    this.direction = props.direction;
     this.weaponBlock = {
       x: props.position.x,
       y: props.position.y,
-      width: 100,
-      height: 50,
+      offset: props.weaponBlock.offset,
+      width: props.weaponBlock.width,
+      height: props.weaponBlock.height,
       color: 'black',
     };
     this.isHitting = false;
@@ -134,16 +138,12 @@ class Fighter extends Sprite {
       props.sprites[sprite].image = new Image();
       props.sprites[sprite].image.src = props.sprites[sprite].imageSource;
     }
-    console.log(this.sprites);
   }
 
   _drawWeapon() {
     ctx.fillStyle = this.weaponBlock.color;
-    if (this.direction === 'right') {
-      this.weaponBlock.x = this.position.x;
-    } else if (this.direction === 'left') {
-      this.weaponBlock.x -= this.image.width / this.framesMax;
-    }
+    this.weaponBlock.x = this.position.x + this.weaponBlock.offset.x;
+    this.weaponBlock.y = this.position.y + this.weaponBlock.offset.y;
 
     ctx.fillRect(
       this.weaponBlock.x,
@@ -155,14 +155,12 @@ class Fighter extends Sprite {
 
   update() {
     this._draw();
-    this._updateWeapon();
+    this._drawWeapon();
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
-    if (this.isHitting === true) {
-      this._drawWeapon();
-    }
+    this._drawWeapon();
 
     if (
       this.position.y + this.height + this.velocity.y >=
@@ -176,10 +174,10 @@ class Fighter extends Sprite {
     this.animateFrames();
   }
 
-  _updateWeapon() {
-    this.weaponBlock.x = this.position.x;
-    this.weaponBlock.y = this.position.y;
-  }
+  // _updateWeapon() {
+  //   this.weaponBlock.x = this.position.x;
+  //   this.weaponBlock.y = this.position.y;
+  // }
 
   idleSprite() {
     if (
@@ -226,9 +224,6 @@ class Fighter extends Sprite {
   hit() {
     this.isHitting = true;
     this.attackSprite();
-    setTimeout(() => {
-      this.isHitting = false;
-    }, 200);
   }
 
   gotHit(amount: number) {
@@ -243,7 +238,7 @@ class Fighter extends Sprite {
     return this.position.x;
   }
   getBodyRightSide() {
-    return this.position.x + this.width;
+    return this.position.x + this.width / this.framesMax;
   }
   getBodyTopSide() {
     return this.position.y;
