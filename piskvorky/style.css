@@ -1,0 +1,173 @@
+*,
+::after,
+::before {
+  margin: 0;
+  pading: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#555, #ccc);
+}
+
+h1 {
+  color: #3d2966;
+  padding-bottom: 2rem;
+}
+
+h2 {
+  color: #3d2966;
+  text-align: centre;
+}
+
+.game-wrapper {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  background: rgba(1, 125, 125, 0.2);
+}
+
+#players {
+  border-style: solid;
+  border-width: 2px 0px 2px 2px;
+  border-color: #ccc;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 0.5rem 1rem;
+}
+
+#player1 {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #ccc;
+}
+
+#player2 {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: #ccc;
+  padding-top: 0.5rem;
+}
+
+.player-plate {
+  padding-top: 2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.menu-container {
+  background: #ccc;
+  border: 2px solid #ccc;
+  width: 25rem;
+  height: 25rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.menu-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fieldset-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-player-name {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.form-player-name label {
+  padding: 0.3rem 0.5rem;
+}
+
+.form-player-name input {
+  padding: 0.3rem 0.5rem;
+  border-color: transparent;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background: #ff9911;
+  border-color: transparent;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.game-container {
+  display: grid;
+  border: 2px solid #ccc;
+  width: 25rem;
+  height: 25rem;
+  padding: 1rem;
+  position: relative;
+}
+
+#result {
+  border-style: solid;
+  border-width: 2px 2px 2px 0px;
+  border-color: #ccc;
+}
+
+.field {
+  background: #999;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-block {
+  background-color: transparent;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 100;
+}
+
+.field i {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.after-game {
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(190, 125, 53, 0.7);
+  gap: 2rem;
+  transition: all 3s linear 1s;
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+}
+
+.win {
+  background: #abdf75;
+}

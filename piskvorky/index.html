@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/4fd71322d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Piskvorky</title>
+  </head>
+  <body>
+    <main>
+      <h1>PIŠKVORKY</h1>
+      <div id="game-wrapper" class="game-wrapper">
+        <div id="players">
+          <div id="player1">
+            <h2>Hráč 1:</h2>
+            <div class="player-plate"></div>
+          </div>
+          <div id="player2">
+            <h2>Hráč 2:</h2>
+            <div class="player-plate"></div>
+          </div>
+        </div>
+        <div id="menu" class="menu-container">
+          <form id="form">
+            <div class="fieldset-grid">
+              <fieldset>
+                <legend>Hrací pole:</legend>
+
+                <div>
+                  <input type="radio" id="3x3" name="size" value="3" checked />
+                  <label for="3x3">3x3</label>
+                </div>
+
+                <div>
+                  <input type="radio" id="4x4" name="size" value="4" />
+                  <label for="4x4">4x4</label>
+                </div>
+
+                <div>
+                  <input type="radio" id="5x5" name="size" value="5" />
+                  <label for="5x5">5x5</label>
+                </div>
+                <div>
+                  <input type="radio" id="6x6" name="size" value="6" />
+                  <label for="6x6">6x6</label>
+                </div>
+                <div>
+                  <input type="radio" id="7x7" name="size" value="7" />
+                  <label for="7x7">7x7</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Cílový počet polí</legend>
+                <div>
+                  <input type="radio" id="target-3" name="target" value="3" />
+                  <label for="target-3">3</label>
+                </div>
+                <div>
+                  <input type="radio" id="target-4" name="target" value="4" />
+                  <label for="target-4">4</label>
+                </div>
+                <div>
+                  <input type="radio" id="target-5" name="target" value="5" />
+                  <label for="target-5">5</label>
+                </div>
+              </fieldset>
+            </div>
+            <fieldset class="form-player-name">
+              <legend>Jméno hráče</legend>
+              <label for="player1">Hráč 1:</label>
+              <input type="text" id="player1-input" name="player1" />
+              <label for="player2">Hráč 2:</label>
+              <input type="text" id="player2-input" name="player2" />
+            </fieldset>
+            <input type="submit" class="form-submit btn" value="Start!" />
+          </form>
+        </div>
+
+        <div id="game" class="game-container">
+          <div id="after-game" class="after-game hide">
+            <button class="btn">Další hra</button>
+            <button class="btn">Ukončit hru</button>
+          </div>
+        </div>
+        <div id="result"></div>
+      </div>
+
+      <!-- <button id="schovej">Schovej</button> -->
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

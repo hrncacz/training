@@ -1,0 +1,213 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background: #333;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  background: white;
+  position: relative;
+  border-radius: 100%;
+}
+
+#rucicka-h {
+  width: 10px;
+  height: 150px;
+  position: absolute;
+  left: calc(50% - 5px);
+  top: calc(50% - 150px);
+  transform-origin: 50% 100%;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+#rucicka-m {
+  width: 8px;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 4px);
+  top: calc(50% - 200px);
+  transform-origin: 50% 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+#rucicka-s {
+  width: 4px;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 2px);
+  top: calc(50% - 200px);
+  transform-origin: 50% 100%;
+  background: red;
+  transition: transform 1s linear;
+  z-index: 3;
+}
+
+.center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: #333;
+  left: calc(50% - 10px);
+  top: calc(50% - 10px);
+  z-index: 4;
+}
+
+.cifernik {
+  display: absolute;
+  border: 2px solid white;
+  border-radius: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(172, 191, 164, 0.6);
+  z-index: 1;
+}
+
+.cif {
+  position: absolute;
+  width: 1rem;
+  transform-origin: 50% 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.num {
+  font-size: 3rem;
+  padding: 0.5rem;
+}
+
+.cif-12 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+}
+
+.cif-1 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(30deg);
+}
+
+.cif-1 .num {
+  transform: rotate(-30deg);
+}
+.cif-2 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(60deg);
+}
+
+.cif-2 .num {
+  transform: rotate(-60deg);
+}
+.cif-3 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.cif-3 .num {
+  transform: rotate(-90deg);
+}
+.cif-4 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(120deg);
+}
+
+.cif-4 .num {
+  transform: rotate(-120deg);
+}
+.cif-5 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(150deg);
+}
+
+.cif-5 .num {
+  transform: rotate(-150deg);
+}
+.cif-6 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.cif-6 .num {
+  transform: rotate(-180deg);
+}
+.cif-7 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(210deg);
+}
+
+.cif-7 .num {
+  transform: rotate(-210deg);
+}
+.cif-8 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(240deg);
+}
+
+.cif-8 .num {
+  transform: rotate(-240deg);
+}
+.cif-9 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(270deg);
+}
+
+.cif-9 .num {
+  transform: rotate(-270deg);
+}
+.cif-10 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(300deg);
+}
+
+.cif-10 .num {
+  transform: rotate(-300deg);
+}
+.cif-11 {
+  left: calc(50% - 0.5rem);
+  top: 0;
+  transform: rotate(330deg);
+}
+
+.cif-11 .num {
+  transform: rotate(-330deg);
+}
+
+.frame {
+  background: transparent;
+  height: 110%;
+  width: 110%;
+  position: absolute;
+  left: -5%;
+  top: -5%;
+  z-index: 0;
+  border: 4px solid white;
+  border-radius: 100%;
+}

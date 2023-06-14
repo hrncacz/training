@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#game-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: #333;
+  overflow: hidden;
+}
+
+.health-bar {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.player-health-bar {
+  position: relative;
+  width: 35%;
+  height: 3rem;
+  background: transparent;
+  border-radius: 5px;
+  border: 5px solid white;
+}
+
+.player-health {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: blue;
+}
+
+.timer {
+  width: 7rem;
+  height: 7rem;
+  background: white;
+  border-radius: 5px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enemy-health-bar {
+  position: relative;
+  width: 35%;
+  height: 3rem;
+  background: transparent;
+  border-radius: 5px;
+  border: 5px solid white;
+}
+
+.enemy-health {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: red;
+}
+
+#result {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+  background: rgba(30, 30, 30, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#result-belt {
+  width: 100%;
+  height: 25%;
+  background: rgba(30, 30, 30, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#result-text {
+  color: white;
+  font-size: 5rem;
+  padding: 1rem;
+}
+
+.buttons-container {
+  width: 25%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.buttons-container button {
+  color: white;
+  background: orange;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  font-size: 1.5rem;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
